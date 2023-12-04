@@ -9,4 +9,4 @@ Auto detect and extract the following:
  - Email body
  - Signature
  - Nested Forwarded mail
- - Nested replay history
+ - Nested reply history
