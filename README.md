@@ -1,5 +1,5 @@
 # EmailParser-Danish-English
-Parse email string to structured python dictionaries or json. 
+Parse email text to structured python dictionaries or json. 
 
 Auto detect and extract the following:
  - Sender
