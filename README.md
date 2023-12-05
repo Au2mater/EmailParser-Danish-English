@@ -56,6 +56,7 @@ John Doe
 
 # full parsing pipeline
 def parse_message(content , verbose=False):
+
     message = ep.start_pipeline(content, verbose=verbose)
     ep.extract_header(message)
     ep.extract_greeting(message)
@@ -63,6 +64,7 @@ def parse_message(content , verbose=False):
     ep.clean_body(message)
     ep.extract_submessage(message,'forward')
     ep.extract_submessage(message,'history')
+    del message['verbose']
     
     return message
 
