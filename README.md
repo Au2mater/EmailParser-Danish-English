@@ -4,7 +4,7 @@ EmailParser-Danish-English is small simple Python library to parse email text to
 Auto detect and extract the following:
  - Sender
  - Date
- - Recpients
+ - Recepients
  - Greeting
  - Email body
  - Signature
