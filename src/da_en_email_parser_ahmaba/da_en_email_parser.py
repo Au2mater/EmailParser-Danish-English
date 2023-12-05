@@ -25,7 +25,7 @@ field_synonyms = (
      })
 
 def log_pipeline(f):
-    # This function is what we "replace" hello with
+    """Decorator function to log the execution of the decorated function and any new fields added to the message."""    
     def wrapper(*args, **kw):
         in_msg = dict(args[0])
         verbose = in_msg['verbose']
@@ -44,15 +44,30 @@ def log_pipeline(f):
     return wrapper
 
 def start_pipeline(message_string:str ,verbose =False):
+    """Initialize the message dictionary for the email processing pipeline.
+
+    Parameters:
+    - message_string (str): The input email message string.
+    - verbose (bool): Flag to indicate whether to print verbose logs.
+
+    Returns:
+    - message (OrderedDict): The initialized message dictionary.
+    """
     message = OrderedDict()
     message['tail'] = message_string
     message['verbose'] = verbose
     if verbose: print(f"Initial message: \n {message_string[:100]}...\n------------")
     return message
 
-# start_pipeline(test_message)
-
 def parse_date_string(date_str:str):
+    """Parse a date string using two different date parsers.
+
+    Parameters:
+    - date_str (str): The input date string.
+
+    Returns:
+    - result: Parsed datetime object.
+    """
     try: 
         result = dt_parser1.parse(date_str, fuzzy=True , dayfirst=True)
     except: 
@@ -63,8 +78,14 @@ def parse_date_string(date_str:str):
 
 
 def parse_header_fields(message:dict):
-    '''parse string in header fields to appropaite datatypes 
-    [email adresses, names, and dates]'''
+    """Parse string in header fields to appropriate data types [email addresses, names, and dates].
+
+    Parameters:
+    - message (dict): The message dictionary.
+
+    Returns:
+    - message (dict): Updated message dictionary with parsed header fields.
+    """
 
     if 'Date sent' in message.keys():
         datetime_string = message['Date sent']
@@ -87,7 +108,14 @@ def parse_header_fields(message:dict):
 
 @log_pipeline
 def extract_header(message:dict):
-    # translate fields to English
+    """Extract header information from the email message.
+
+    Parameters:
+    - message (dict): The message dictionary.
+
+    Returns:
+    - message (dict): Updated message dictionary with extracted header information.
+    """
 
     infotype_pattern = r'^[A-Z][a-z]{0,6}[ ]{0,1}[A-Za-z]{1,6}\:[ ]' 
     info_pattern = r'[^\n]+'
@@ -116,6 +144,14 @@ def extract_header(message:dict):
 
 @log_pipeline
 def extract_greeting(message:dict):
+    """Extract greeting information from the email message.
+
+    Parameters:
+    - message (dict): The message dictionary.
+
+    Returns:
+    - message (dict): Updated message dictionary with extracted greeting information.
+    """
     # Define a regular expression pattern for common Danish greetings
     greeting_pattern = r'^(hej|hall[oå]|god[]{0,1}morgen|god[]{0,1}dag|hejsa|kære|att\.|til\s.{3,60}$)'
     content = message['tail']
@@ -133,6 +169,14 @@ def extract_greeting(message:dict):
 
 @log_pipeline
 def extract_signature(message:dict):
+    """Extract signature information from the email message.
+
+    Parameters:
+    - message (dict): The message dictionary.
+
+    Returns:
+    - message (dict): Updated message dictionary with extracted signature information.
+    """
     # Define a regular expression pattern for common Danish greetings
     da_sig = ['med[ ]venlig[ ]hilsen','venlig[ ]hilsen','hilsen','de[ ]bedste[ ]hils[e]{0,1}ner'
               ,'mange[ ]hilsner','vh','kh','mvh','dbh']
@@ -156,6 +200,14 @@ def extract_signature(message:dict):
 
 @log_pipeline
 def clean_body(message:dict):
+    """Clean the body of the email message by removing emojis, symbols, and extra whitespaces.
+
+    Parameters:
+    - message (dict): The message dictionary.
+
+    Returns:
+    - message (dict): Updated message dictionary with cleaned body.
+    """
     # Define a pattern to match emojis and symbols
     symbol_pattern = re.compile('[ \t]{2,}|※|_{3,}')
 
@@ -168,11 +220,15 @@ def clean_body(message:dict):
 
 @log_pipeline
 def extract_submessage(message:dict, m_type:str):
-    ''' extract nested mails that are forwarded or responeded to.
-    arguments:
-        message: af message dictionary
-        m_type: ['forward'|'history']
-    '''
+    """Extract nested mails that are forwarded or responded to.
+
+    Parameters:
+    - message (dict): The message dictionary.
+    - m_type (str): Type of submessage ['forward'|'history'].
+
+    Returns:
+    - message (dict): Updated message dictionary with extracted submessage.
+    """
     indicators = ['Sender:','Fra:']
     message_types = {'forward':'vs:','history':'sv:'}
     if 'Subject' in message.keys() and message_types[m_type] in message['Subject'].lower():
