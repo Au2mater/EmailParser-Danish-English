@@ -70,10 +70,10 @@ message = parse_message(content)
 # returns an ordered dict with the following keys:
 # odict_keys(['tail', 'header_text', 'Date sent', 'To', 'CC', 'Subject', 'greeting', 'body', 'signature', 'forward'])
 
-print(message['Date sent']) # the date has been parsed to date type
+print(message['Date sent']) # the date as a date type
 # 2023-12-15 09:45:00
 
-print(message['body']) # the body is without has been separated from the greeting and the signature
+print(message['body']) # the body without the greeting and the signature
 # I hope this email finds you well. Here is the update on our ongoing projects:
 # - Project A: Milestone achieved, and client feedback incorporated.
 # - Project B: On track, no issues reported.
