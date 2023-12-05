@@ -249,7 +249,7 @@ def extract_submessage(message:dict, m_type:str):
     Returns:
     - message (dict): Updated message dictionary with extracted submessage.
     """
-    indicators = ['Sender:','Fra:']
+    indicators = ['Sender:','Fra:','From:']
     message_types = {'forward':'vs:','history':'sv:'}
     if 'Subject' in message.keys() and message_types[m_type] in message['Subject'].lower():
         for i in indicators:
