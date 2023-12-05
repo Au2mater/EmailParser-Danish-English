@@ -16,3 +16,7 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/Au2mater/EmailParser-Danish-English"
 Issues = "https://github.com/Au2mater/EmailParser-Danish-English/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
