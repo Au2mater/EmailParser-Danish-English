@@ -26,8 +26,9 @@ import da_en_email_parser_ahmaba as ep
 
 content = ('Date sent: Nov 30, 2023 11:37 PM\n'
  'To: customerservice@buisness.com\n'
- 'Subject: Alert Center: Performance CPU Utilization Exceeds 90% (7 out of '
- 'threshold / 8 total) -  Escalation Step 1\n'
+ 'Subject: Alert Center: Performance CPU Utilization Exceeds 90% (7 out of threshold / 8 total) -  Escalation Step 1\n'
+ 'Hi there,'
+  'Check this out!'
  'Regards')
 
 # full parsing pipeline
@@ -41,16 +42,9 @@ def parse_message(content , verbose=False):
     ep.extract_submessage(message,'history')
     
     return message
+
 parse_message(content)
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
 ```
 
 ## Contributing
