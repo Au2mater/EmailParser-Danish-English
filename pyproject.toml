@@ -1,5 +1,5 @@
 [project]
-name = "email_parser"
+name = "da_en_email_parser_ahmaba"
 version = "0.0.1"
 authors = [
   { name="Ahmad Balkiss", email="ab.dev@tutamail.com" },
