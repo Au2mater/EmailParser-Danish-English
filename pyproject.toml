@@ -1,0 +1,18 @@
+[project]
+name = "email_parser"
+version = "0.0.1"
+authors = [
+  { name="Ahmad Balkiss", email="ab.dev@tutamail.com" },
+]
+description = "A small package that converts email strings to structured python dictionaries. Supports Danish and English"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Au2mater/EmailParser-Danish-English"
+Issues = "https://github.com/Au2mater/EmailParser-Danish-English/issues"
