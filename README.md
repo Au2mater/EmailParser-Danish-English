@@ -1,5 +1,5 @@
 # EmailParser-Danish-English
-EmailParser-Danish-English is a Python library to parse email text to structured python dictionaries.
+EmailParser-Danish-English is small simple Python library to parse email text to structured python dictionaries.
 
 Auto detect and extract the following:
  - Sender
