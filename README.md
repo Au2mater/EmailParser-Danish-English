@@ -58,7 +58,7 @@ John Doe
 def parse_message(content , verbose=False):
 
     message = ep.start_pipeline(content, verbose=verbose)
-    ep.extract_header(message,)
+    ep.extract_header(message)
     ep.extract_greeting(message)
     ep.extract_signature(message)
     ep.clean_body(message)
