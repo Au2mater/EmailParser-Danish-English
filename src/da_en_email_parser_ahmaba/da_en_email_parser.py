@@ -134,7 +134,6 @@ def extract_greeting(message:dict):
     - message (dict): Updated message dictionary with extracted greeting information.
     """
     # Define a regular expression pattern for common Danish greetings
-    # greeting_pattern = r'^(hello|hi|hey|dear|hej|hall[oå]|god[]{0,1}morgen|god[]{0,1}dag|hejsa|kære|att\.|til\s.{3,60}$)'
     content = message['tail']
 
     for line in content.splitlines()[:5]:
