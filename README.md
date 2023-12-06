@@ -58,14 +58,14 @@ John Doe
 def parse_message(content , verbose=False):
 
     message = ep.start_pipeline(content, verbose=verbose)
-    ep.extract_header(message)
+    ep.extract_header(message,)
     ep.extract_greeting(message)
     ep.extract_signature(message)
     ep.clean_body(message)
     ep.extract_submessage(message,'forward')
     ep.extract_submessage(message,'history')
-    del message['verbose']
-    
+    ep.drop_fields(message,  ['verbose','tail','header_text'])
+
     return message
 
 message = parse_message(content)
