@@ -19,8 +19,14 @@ greetings = ['hello', 'hi', 'hey', 'dear'
 
 # Danish and English signatures
 da_sig = ['med[ ]venlig[ ]hilsen','venlig[ ]hilsen','hilsen','de[ ]bedste[ ]hils[e]{0,1}ner'
-        ,'mange[ ]hilsner','vh','kh','mvh','dbh','tak','på[ ]forhånd[ ]tak']
+        ,'mange[ ]hilsner','vh','kh','mvh','dbh','tak','på[ ]forhånd[ ]tak','herligst']
 en_sig = ['sent[ ]by','best[ ]regards','kind[ ]regards','sincerely','regards']
+da_sig += ['venlig[ ]hilsen[ ]fra','venlig[ ]hilsen[ ]og','hilsen[ ]og[ ]god[ ]dag','de[ ]bedste','mange[ ]tak',
+'tak[ ]for[ ]hj[æ]{0,1}lpen','tak[ ]for[ ]sidst','på[ ]gensyn','venligst','venlig[ ]hilsen[ ]og[ ]tak',
+'p[å]{0,1}[ ]gensyn','tak[ ]for[ ]nu','tak[ ]igen','hilsen[ ]fra[ ]mig','mange[ ]hilsner[ ]fra[ ]mig']
+
+en_sig += ['yours[ ]truly','warm[ ]regards','with[ ]regards','with[ ]best[ ]wishes','looking[ ]forward[ ]to',
+'hope[ ]to','best[ ]wishes','thanks','thank[ ]you','thanks[ ]again']
 
 
 greeting_pattern = f"^({'|'.join(greetings)})"+".{0,60}$"
