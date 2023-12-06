@@ -232,7 +232,7 @@ def drop_fields(message:dict, keys:list):
     - message (dict): Updated message dictionary with removed fields.
     """
     levels = [message] + [message[key] for key in ['forward','history'] if key in message.keys()]
-    for k in drop_keys:
+    for k in keys:
         for level in levels:
             del level[k]
     return message
