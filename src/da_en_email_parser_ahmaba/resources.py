@@ -24,7 +24,7 @@ en_sig = ['sent[ ]by','best[ ]regards','kind[ ]regards','sincerely','regards']
 
 
 greeting_pattern = f"^({'|'.join(greetings)})"+".{0,60}$"
-sig_pattern = f"^({'|'.join(da_sig+en_sig)}"+".{0,60}$"
+sig_pattern = f"^({'|'.join(da_sig+en_sig)})"+".{0,60}$"
 
 
 test_message = '''
