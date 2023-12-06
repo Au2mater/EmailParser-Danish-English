@@ -220,4 +220,22 @@ def extract_submessage(message:dict, m_type:str):
                 break
     return message
 
+@log_pipeline
+def drop_fields(message:dict, keys:list):
+    """Drop fields from main message and nested messages.
+
+    Parameters:
+    - message (dict): The message dictionary.
+    - keys (list): List of keys to drop.
+
+    Returns:
+    - message (dict): Updated message dictionary with removed fields.
+    """
+    levels = [message] + [message[key] for key in ['forward','history'] if key in message.keys()]
+    for k in drop_keys:
+        for level in levels:
+            del level[k]
+    return message
+
+
 
