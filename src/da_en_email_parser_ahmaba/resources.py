@@ -23,7 +23,7 @@ da_sig = ['med[ ]venlig[ ]hilsen','venlig[ ]hilsen','hilsen','de[ ]bedste[ ]hils
         ,'venlig[ ]hilsen[ ]fra','venlig[ ]hilsen[ ]og','hilsen[ ]og[ ]god[ ]dag','de[ ]bedste'
         ,'mange[ ]tak','tak[ ]for[ ]hj[æ]{0,1}lpen','tak[ ]for[ ]sidst','på[ ]gensyn','venligst'
         ,'venlig[ ]hilsen[ ]og[ ]tak','p[å]{0,1}[ ]gensyn','tak[ ]for[ ]nu','tak[ ]igen'
-        ,'hilsen[ ]fra[ ]mig','mange[ ]hilsner[ ]fra[ ]mig','på[ ]forhånd[ ]mange[ ]tak']]
+        ,'hilsen[ ]fra[ ]mig','mange[ ]hilsner[ ]fra[ ]mig','på[ ]forhånd[ ]mange[ ]tak']
 
 en_sig = ['sent[ ]by','best[ ]regards','kind[ ]regards','sincerely','regards','yours[ ]truly'
           ,'warm[ ]regards','with[ ]regards','with[ ]best[ ]wishes','looking[ ]forward[ ]to'
